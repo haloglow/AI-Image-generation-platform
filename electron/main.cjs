@@ -12,7 +12,7 @@ function createWindow() {
     minWidth: 1100,
     minHeight: 760,
     backgroundColor: '#020617',
-    title: '对话生图',
+    title: '图像工作台',
     webPreferences: {
       preload: path.join(__dirname, 'preload.cjs'),
       contextIsolation: true,
@@ -33,6 +33,7 @@ ipcMain.handle('config:get', async () => getPublicConfig())
 ipcMain.handle('image:generate', async (_event, payload) => {
   return generateImage(payload)
 })
+
 
 ipcMain.handle('image:save', async (_event, payload = {}) => {
   const { image } = payload
